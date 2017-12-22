@@ -69,7 +69,7 @@ services:
     container_name: "python-hedwig"
     restart: "no"
     environment:
-      FUNCTION: python-tsne
+      FUNCTION: python-hedwig
       NODE: job_test
       JOB_ID: 2
       IN_JDBC_DRIVER: org.postgresql.Driver
