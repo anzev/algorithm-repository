@@ -1,8 +1,5 @@
 '''
-Wrapper for Hedwig to work within the HBP medical platform.
-
-Example:
-$ python hbp_wrapper.py test_data.json tsnr
+Hedwig wrapper for the HBP medical platform.
 
 @author: anze.vavpetic@ijs.si
 '''

@@ -2,41 +2,6 @@ from scipy import stats
 import logging
 
 
-# def binarize2(matrix, attributes, bins=4):
-#     ''' Use a simple binning method for continous attributes '''
-#     target_att, target_type = attributes[-1]
-#
-#     # Compute bins for each attribute
-#     new_attributes = []
-#     binarized_data = [[] for _ in range(len(matrix))]
-#     for i, (att, type) in enumerate(attributes):
-#         _, edges, membership = stats.binned_statistic(matrix[:,i], matrix[:,i], bins=bins)
-#
-#         binned_attributes = []
-#         if att == target_att and type == 'real':
-#             # For the target attribute, use the bins as target values
-#             binned_attributes.append(att)
-#             target_values = []
-#             for i, _ in enumerate(edges):
-#                 lower, upper = str(edges[i]), str(edges[(i + 1) % len(edges)])
-#                 target_values.append('{}<={}<{}'.format(lower,att,upper))
-#
-#             for j, bin_idx in enumerate(membership):
-#                 binarized_data[j].append(target_values[bin_idx-1])
-#         else:
-#             for i in range(1, len(edges)):
-#                 lower, upper = str(edges[i - 1]), str(edges[i])
-#                 binned_attributes.append('{}<={}<{}'.format(lower,att,upper))
-#
-#             for i, _ in enumerate(binned_attributes):
-#                 for j, bin_idx in enumerate(membership):
-#                     binarized_data[j].append('0' if bin_idx-1 != i else '1')
-#
-#         new_attributes = new_attributes + binned_attributes
-#
-#     return binarized_data, new_attributes
-
-
 def binarize(att, values, bins, target=False):
     _, edges, membership = stats.binned_statistic(values, values, bins=bins)
 
